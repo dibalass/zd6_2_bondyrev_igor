@@ -10,7 +10,7 @@ namespace zd_6_2_bondyrev
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new Cakes());
         }
 
         protected override void OnStart ()

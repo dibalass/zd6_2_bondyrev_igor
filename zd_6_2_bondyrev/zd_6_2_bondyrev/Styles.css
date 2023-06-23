@@ -1,0 +1,33 @@
+﻿#entry {
+    border-radius: 100;
+    color: blue;
+}
+
+#button {
+    color: blue;
+    font-size: small;
+}
+
+#picker {
+    color: blue;
+}
+
+#labelsmall {
+    color: blue;
+    font-size: small;
+}
+
+#labelmedium {
+    color: red;
+    font-size: medium;
+}
+
+#labelmedium1 {
+    color: blue;
+    font-size: medium;
+}
+
+#labellarge {
+    color: blue;
+    font-size: large;
+}

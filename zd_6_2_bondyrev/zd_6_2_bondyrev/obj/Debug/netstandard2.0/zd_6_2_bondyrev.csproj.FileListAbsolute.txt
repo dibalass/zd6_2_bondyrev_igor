@@ -13,3 +13,6 @@ C:\Users\305-12\Desktop\bondyrev\zd_6_2_bondyrev\zd_6_2_bondyrev\obj\Debug\netst
 C:\Users\305-12\Desktop\bondyrev\zd_6_2_bondyrev\zd_6_2_bondyrev\obj\Debug\netstandard2.0\zd_6_2_bondyrev.dll
 C:\Users\305-12\Desktop\bondyrev\zd_6_2_bondyrev\zd_6_2_bondyrev\obj\Debug\netstandard2.0\ref\zd_6_2_bondyrev.dll
 C:\Users\305-12\Desktop\bondyrev\zd_6_2_bondyrev\zd_6_2_bondyrev\obj\Debug\netstandard2.0\zd_6_2_bondyrev.pdb
+C:\Users\305-12\Desktop\bondyrev\zd_6_2_bondyrev\zd_6_2_bondyrev\obj\Debug\netstandard2.0\Cakes.xaml.g.cs
+C:\Users\305-12\Desktop\bondyrev\zd_6_2_bondyrev\zd_6_2_bondyrev\obj\Debug\netstandard2.0\Calculate.xaml.g.cs
+C:\Users\305-12\Desktop\bondyrev\zd_6_2_bondyrev\zd_6_2_bondyrev\obj\Debug\netstandard2.0\Styles.css.g.cs
