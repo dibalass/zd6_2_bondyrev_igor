@@ -9,7 +9,7 @@
 
     <StackLayout >
 
-        <Label Text="{Binding Source={x:Reference Name=phonesList}, Path=SelectedItem.Title}" FontSize="Large"/>
+        <Label Text="{Binding Source={x:Reference Name=phonesList}, Path=SelectedItem.Name}" FontSize="Large"/>
 
         <ListView x:Name="phonesList" HasUnevenRows="True" ItemsSource="{Binding Cake}" ItemTapped="OnItemTapped">
 
@@ -30,8 +30,8 @@
 
         <StackLayout x:Name="button" Orientation="Vertical">
 
-            <Button Text="Информация по тортам" Margin="20,0,20,0"  HorizontalOptions="CenterAndExpand" StyleId="button" Clicked="Button_Clicked"/>
-            <Button Text="Расчет стоимости торта" Margin="20,0,20,20"  HorizontalOptions="CenterAndExpand" StyleId="button" Clicked="Button_Clicked_1"/>
+            <Button Text="Информация по тортам" Margin="5,0,5,0" StyleId="button" Clicked="Button_Clicked"/>
+            <Button Text="Расчет стоимости торта" Margin="5,0,5,20" StyleId="button" Clicked="Button_Clicked_1"/>
 
         </StackLayout>
 

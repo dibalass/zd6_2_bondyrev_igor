@@ -12,64 +12,79 @@ namespace zd_6_2_bondyrev
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Calculate :ContentPage
     {
-        double _metr=1, _price;
-        int _days;
+        double _price,_ves;
 
-        public Calculate (double Metr, double Price, int Days)
+        public Calculate (double Kg, double Price)
         {
             InitializeComponent();
-            metr.Text = "Кол-во метров: " + Metr;
+            metr.Text = "Кол-во кг.: " + Kg;
             price.Text = "Цена за кг. торта: " + Price;
-            day.Text = "Количество дней на изготовление: " + Days;
-            _metr = Metr;
             _price = Price;
-            _days = Days;
+            _ves = Kg;
+            Calculator(_price);
         }
 
-        public void Calculator (double price, int paymentType, int productionDays)
+        public void Calculator (double price)
         {
-            double total_price = 0;
-            if(paymentType==1)
+            double total_price = price;
+            string switchs=""; 
+            if (switch1.IsToggled==true&&switch2.IsToggled==false&&switch3.IsToggled==false)
             {
-                total_price = price + price * 0.4;
+                switchs = "1";
             }
-            if (paymentType == 2)
+            if (switch1.IsToggled == true && switch2.IsToggled == true && switch3.IsToggled == false)
             {
-                total_price = price + price * 0.2;
+                switchs = "12";
             }
-            if (paymentType == 3)
+            if (switch1.IsToggled == true && switch2.IsToggled == true && switch3.IsToggled == true)
             {
-                total_price = price + price * 0.1;
+                switchs = "123";
             }
-            if (paymentType == 4)
+            if (switch1.IsToggled == false && switch2.IsToggled == true && switch3.IsToggled == true)
             {
-                total_price = price;
+                switchs = "23";
             }
-            //if (paymentType == 1)
-            //{
-            //    double discount = price * 0.1;
-            //    total_price = price - discount;
-            //} else if (paymentType == 2)
-            //{
-            //    double surcharge = price * 0.1;
-            //    total_price = price + surcharge;
-            //}
-            //if (productionDays >= 20 && productionDays <= 30)
-            //{
-            //    double surcharge = total_price * -0.05;
-            //    total_price += surcharge;
-            //} else if (productionDays >= 10 && productionDays <= 18)
-            //{
-            //    double surcharge = total_price * 0.1;
-            //    total_price += surcharge;
-            //} else if (productionDays >= 1 && productionDays <= 5)
-            //{
-            //    double surcharge = total_price * 0.25;
-            //    double surcharge_per_day = surcharge / productionDays;
-            //    total_price += surcharge_per_day * productionDays;
-            //}
-            double cost_ = total_price * _metr;
-            cost.Text = "Стоимость: " + cost_.ToString();
+            if (switch1.IsToggled == false && switch2.IsToggled == false && switch3.IsToggled == true)
+            {
+                switchs = "3";
+            }
+            if (switch1.IsToggled == false && switch2.IsToggled == true && switch3.IsToggled == false)
+            {
+                switchs = "2";
+            }
+            if (switch1.IsToggled == true && switch2.IsToggled == false && switch3.IsToggled == true)
+            {
+                switchs = "13";
+            }
+
+            switch (switchs)
+            {
+                case "1":
+                    total_price = (total_price + price * 0.4) * _ves;
+                    break;
+                case "2":
+                    total_price = (total_price + price * 0.2) * _ves;
+                    break;
+                case "3":
+                    total_price = (total_price + price * 0.1) * _ves;
+                    break;
+                case "12":
+                    total_price = (total_price + price * 0.4 + price * 0.2) * _ves;
+                    break;
+                case "13":
+                    total_price = (total_price + price * 0.4 + price * 0.1) * _ves;
+                    break;
+                case "123":
+                    total_price = (total_price + price * 0.4 + price * 0.2 + price * 0.1) * _ves;
+                    break;
+                case "23":
+                    total_price = (total_price + price * 0.2 + price * 0.1) * _ves;
+                    break;
+                default:
+                    total_price = price*_ves;
+                    break;
+            }
+            cost.Text = "Стоимость: " + total_price.ToString();
         }
 
         private void next_Clicked (object sender, EventArgs e)
@@ -84,11 +99,9 @@ namespace zd_6_2_bondyrev
 
         }
 
-        private void PaymentTypePicker_SelectedIndexChanged (object sender, EventArgs e)
+        private void switch1_Toggled(object sender, ToggledEventArgs e)
         {
-            int paymentType = PaymentTypePicker.SelectedIndex + 1;
-            Calculator(_price, paymentType, _days);
+            Calculator(_price);
         }
-
     }
 }

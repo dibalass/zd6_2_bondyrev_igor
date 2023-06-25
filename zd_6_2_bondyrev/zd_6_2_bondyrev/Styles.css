@@ -1,10 +1,10 @@
 ﻿#entry {
     border-radius: 100;
-    color: blue;
+    color: black;
 }
 
 #button {
-    color: blue;
+    color: red;
     font-size: small;
 }
 
@@ -18,16 +18,16 @@
 }
 
 #labelmedium {
-    color: red;
+    color: blue;
     font-size: medium;
 }
 
 #labelmedium1 {
-    color: blue;
+    color: red;
     font-size: medium;
 }
 
 #labellarge {
-    color: blue;
+    color: red;
     font-size: large;
 }

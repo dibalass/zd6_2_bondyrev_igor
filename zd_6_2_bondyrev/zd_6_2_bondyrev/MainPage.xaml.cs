@@ -10,9 +10,8 @@ namespace zd_6_2_bondyrev
 {
     public partial class MainPage :ContentPage
     {
-        double Metr;
-        double Price;
-        int Days;
+        double Ves;
+        int Price;
         public MainPage (Cake cake)
         {
             InitializeComponent();
@@ -20,38 +19,44 @@ namespace zd_6_2_bondyrev
         }
         public void Info (Cake cake)
         {
-            try
-            {
+            //try
+            //{
                 picture.Source = cake.ImagePath;
-                name.Text = "Название " + cake.Name;
-                category.Text = "Категория " + cake.Category;
-                unit.Text = "Единица измерения " + cake.Unit;
-                fats.Text = "Жиры " + cake.Fats;
+                name.Text = "Название: " + cake.Name;
+                category.Text = "Категория: " + cake.Category;
+                unit.Text = "Единица измерения: " + cake.Unit;
+                fats.Text = "Жиры: " + cake.Fats;
                 belky.Text = "Белки " + cake.Belky;
-                yglevody.Text = "Углеводы " + cake.Yglevody;
-                vitamins.Text = "Витамины " + cake.Vitamins;
-                provider.Text = "Поставщик  " + cake.Provider;
-                recipe.Text = "Рецепт " + cake.Recipe;
+                yglevody.Text = "Углеводы: " + cake.Yglevody;
+                vitamins.Text = "Витамины: " + cake.Vitamins;
+                price.Text = "Цена: " + cake.Price;
+                count.Text = "В наличии: " + cake.Count;
+                provider.Text = "Поставщик:  " + cake.Provider;
+                recipe.Text = "Рецепт: " + cake.Recipe;
                 Price = cake.Price;
-                Days = Convert.ToInt32(cake.Belky);
-            } catch
-            {
-                DisplayAlert("Ошибка", "Введите число", "Ок");
-            }
+            //} catch
+            //{
+            //    DisplayAlert("Ошибка", "Введите число", "Ок");
+            //}
         }
         private void next_Clicked (object sender, EventArgs e)
         {
             try
             {
-                if (double.Parse(entry.Text) <= 10 || double.Parse(entry.Text) >= 0.5)
+                if (double.Parse(entry.Text) <= 10 && double.Parse(entry.Text) >= 0.5)
                 {
-                    Metr = double.Parse(entry.Text);
-                    Navigation.PushAsync(new Calculate(Metr, Price, Days));
+                    if (double.Parse(entry.Text) <= double.Parse(count.Text.Remove(0, count.Text.IndexOf(':')+1)))
+                    {
+                        Ves = double.Parse(entry.Text);
+                        Navigation.PushAsync(new Calculate(Ves, Price));
+                    }
+                    else
+                        DisplayAlert("Предупреждение", "В наличии столько нет", "Ок");
                 } else
                     DisplayAlert("Ограничение", "Вес должен быть от 0.5 до 10 кг.", "Ок");
             } catch
             {
-                DisplayAlert("Ошибка", "Введите число", "Ок");
+                DisplayAlert("Предупреждение", "Введи количество кг. торта", "Ок");
             }
         }
 
